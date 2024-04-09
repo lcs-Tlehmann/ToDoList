@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct LandingView: View {
+    
+    @State var newItemDescription = ""
+    
+    @State var searchText = ""
+    
     var body: some View {
         NavigationView{
             
@@ -18,6 +23,17 @@ struct LandingView: View {
                     Text("Go for a run around campus")
                     
                 }
+                .searchable(text: $searchText)
+                
+                HStack {
+                    TextField("Enter a to-do", text: $newItemDescription)
+                    
+                    Button("ADD") {
+                        // Add the new to do item
+                    }
+                    .font(.caption)
+                }
+                .padding(20)
             }
             .navigationTitle("To Do")
         }
